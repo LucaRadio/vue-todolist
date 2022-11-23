@@ -37,7 +37,9 @@
                             <button @click="deleteListItem(i)" class="btn btn-danger" type="button"
                                 id="button-addon2"><i class="fa-solid fa-trash"></i></button>
                         </div>
-
+                        <div class="message text-center">You have {{count()}} task to complete
+                            <button class="btn btn-warning" @click="clearAll">Clear all</button>
+                        </div>
 
                     </div>
                 </div>

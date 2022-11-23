@@ -9,21 +9,30 @@ createApp({
             newItem: {
                 text: "",
 
-            }
+            },
 
         }
 
     },
     methods: {
         addItem() {
-            this.toDoListItems.push({
-                text: text = this.newItem.text,
-                done: false
-            })
-            this.newItem.text = ""
+            if (this.newItem.text === "") {
+                alert("Inserisci qualcosa")
+            } else {
+                this.toDoListItems.push({
+                    text: text = this.newItem.text,
+                    done: false
+                })
+                this.newItem.text = ""
+            }
+
+
         },
         deleteListItem(i) {
-            this.toDoListItems.splice(i, 1)
+            const confrimation = confirm("Sei sicuro di volerlo cancellare?")
+            if (confrimation) {
+                this.toDoListItems.splice(i, 1)
+            }
 
         },
         checkedItem(i) {
@@ -31,6 +40,16 @@ createApp({
                 this.toDoListItems[i].done = true
             } else {
                 this.toDoListItems[i].done = false
+            }
+        },
+        count() {
+            const count = this.toDoListItems.length
+            return count
+        },
+        clearAll() {
+            const confrimation = confirm("Sei sicuro di volerlo cancellare?")
+            if (confrimation) {
+                this.toDoListItems.splice(this.toDoListItems)
             }
         }
 
