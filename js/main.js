@@ -47,7 +47,7 @@ createApp({
             return count
         },
         clearAll() {
-            const confrimation = confirm("Sei sicuro di volerlo cancellare?")
+            const confrimation = confirm("Sei sicuro di volerlo cancellare tutto?")
             if (confrimation) {
                 this.toDoListItems.splice(this.toDoListItems)
             }
